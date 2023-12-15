@@ -23,7 +23,9 @@ defmodule ExShort.Links.Link do
     put_change(changeset, :hash, create_hash(url))
   end
 
+  defp put_hash(changeset), do: changeset
+
   defp create_hash(url) do
-    :crypto.hash(:sha, url) |> Base.encode64()
+    :crypto.hash(:sha, url) |> Base.url_encode64()
   end
 end
