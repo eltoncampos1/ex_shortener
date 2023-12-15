@@ -15,9 +15,9 @@ defmodule ExShortWeb.Router do
   end
 
   scope "/", ExShortWeb do
-    pipe_through :browser
+    pipe_through :api
 
-    get "/", PageController, :home
+    get "/:hash", UrlController, :redirect_to
   end
 
   # Other scopes may use custom stacks.
